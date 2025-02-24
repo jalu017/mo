@@ -24,29 +24,6 @@ get_contract_address() {
 
 # Function to deploy the KOPIHITAM contract
 deploy_sc() {
-    echo "Installing NVM..."
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
-    
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \ . "$NVM_DIR/nvm.sh"
-    [ -s "$NVM_DIR/bash_completion" ] && \ . "$NVM_DIR/bash_completion"
-    
-    if ! command -v nvm &> /dev/null; then
-        echo "NVM installation failed. Please restart your terminal and try again."
-        return 1
-    fi
-
-    echo "Installing Node.js 20.11.1..."
-    nvm install 20.11.1
-    nvm use 20.11.1
-
-    if ! command -v node &> /dev/null; then
-        echo "Node.js installation failed"
-        return 1
-    fi
-
-    echo "Node.js $(node -v) installed successfully"
-    
     mkdir -p monad
     cd monad || exit
     npm init -y
